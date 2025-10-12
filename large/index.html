@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <title>Bao nhiêu tiếng pháo giao thừa</title>
+  </head>
+  <body style="background: #f2f2f2">
+    <div class="container">
+      <div
+        class="row"
+        style="height: 100vh; position: relative; align-content: center"
+      >
+        <div class="fun-left col-12 col-md-6" style="padding-right: 16px">
+          <img
+            id="img__left"
+            src="../img/41c3411c379878f87a1fbe9c557c4ef8.gif"
+            alt="fun left"
+            width="100%"
+          />
+        </div>
+        <div
+          class="fun-right col-12 col-md-6"
+          style="align-self: center; justify-items: center"
+        >
+          <h4 style="text-align: center">Bao nhiêu tiếng pháo giao thừa</h4>
+          <h4 style="text-align: center">
+            Bao nhiêu thính bả mới lừa được em!?
+          </h4>
+          <h5 style="text-align: center">
+            <i><var>Đi chơi với anh nhé?</var></i>
+          </h5>
+          <div
+            class="right__answer d-flex"
+            style="justify-content: center; align-items: center"
+          >
+            <button
+              id="btn-yes"
+              type="button"
+              class="btn btn-primary"
+              style="margin-right: 10px"
+            >
+              Có
+            </button>
+            <button
+              id="btn-no"
+              type="button"
+              class="btn btn-danger"
+              style="z-index: 1; height: fit-content"
+            >
+              Không
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../js/jquery-3.3.1.slim.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/sweetalert2@11.js"></script>
+    <script>
+      function getRandomArbitrary(min = 10, max = 80) {
+        return parseInt(Math.random() * (max - min) + min);
+      }
+      let imgs = [
+        "../img/41c3411c379878f87a1fbe9c557c4ef8.gif",
+        "../img/hi-to-yeu-cau-nhieu-nhu-the-nay-nay-nhu-can-nang-cua-to-ay_111223250.gif",
+        "../img/hinh-nen-dong-cho-dien-thoai_112055730.gif",
+        "../img/hinh-dong-cute-va-de-thuong_112054774.gif",
+        "../img/0e8c92b0f28c509eac86035ad41a8c15.gif",
+        "../img/hinh-dong-de-thuong-doc-dao_112054901.gif",
+      ];
+      $("#img__left").attr("src", imgs[getRandomArbitrary(0, 5)]);
+      $("#btn-no").on("mouseover", function () {
+        $("#btn-yes").css({
+          width:
+            parseInt(
+              parseInt($("#btn-yes").css("width").replace("px", "")) + 10
+            ) + "px",
+          height:
+            parseInt(
+              parseInt($("#btn-yes").css("height").replace("px", "")) + 10
+            ) + "px",
+        });
+      });
+      $("#btn-no").on("click", function () {
+        $("#btn-yes").css({
+          width:
+            parseInt(
+              parseInt($("#btn-yes").css("width").replace("px", "")) + 10
+            ) + "px",
+          height:
+            parseInt(
+              parseInt($("#btn-yes").css("height").replace("px", "")) + 10
+            ) + "px",
+        });
+      });
+
+      $("#btn-yes").on("click", function () {
+        Swal.fire({
+          title: "<strong>Mình biết mà!</strong>",
+          html: `
+          <img
+          src="../img/8853f82a27dfff40e3f4c7dfd8906e22.gif"
+            alt="yes"
+            width="100%"
+          />
+  `,
+          showCloseButton: false,
+          showCancelButton: false,
+          focusConfirm: false,
+        }).then((result) => {
+          $("#img__left").attr("src", imgs[getRandomArbitrary(0, 5)]);
+        });
+      });
+    </script>
+  </body>
+</html>
