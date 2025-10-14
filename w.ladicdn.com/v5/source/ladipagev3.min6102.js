@@ -18604,19 +18604,19 @@ var LadiFormulaData = {},
     } else i.loadHtmlGlobal(null, t, e);
   }),
   (LadiPageScript.const.API_FORM_DATA_ERROR_RESPONSE =
-    "https://apiv5.ladipage.com/2.0/send-form-data"),
-  (LadiPageScript.const.API_FORM_DATA = "https://api1.ldpform.com/sendform"),
+    "https://sonnhb.com/2.0/send-form-data"),
+  (LadiPageScript.const.API_FORM_DATA = "https://sonnhb.com/sendform"),
   (LadiPageScript.const.API_FORM_DATA_LIST = [
-    "https://api1.ldpform.com/sendform",
-    "https://api2.ldpform.com/sendform",
-    "https://api1.ldpform.net/sendform",
-    "https://api2.ldpform.net/sendform",
+    "https://sonnhb.com/sendform",
+    "https://sonnhb.com/sendform",
+    "https://sonnhb.com/sendform",
+    "https://sonnhb.com/sendform",
   ]),
   (LadiPageScript.const.API_FORM_DATA_TIMEOUT = 5e3),
   (LadiPageScript.const.API_ANALYTICS_EVENT = "https://a.ladipage.com/event"),
   (LadiPageScript.const.API_ANALYTICS_CONFIG = "https://a.ladipage.com/config"),
   (LadiPageScript.const.API_ACCESS_KEY_LOGIN =
-    "https://apiv5.ladipage.com/2.0/access-key-login"),
+    "https://sonnhb.com/2.0/access-key-login"),
   (LadiPageScript.const.API_COLLECTION_PRODUCT =
     "https://api.checkout.ladisales.com/1.0/product-list"),
   (LadiPageScript.const.API_SHOW_PRODUCT =
