@@ -18604,9 +18604,9 @@ var LadiFormulaData = {},
     } else i.loadHtmlGlobal(null, t, e);
   }),
   (LadiPageScript.const.API_FORM_DATA_ERROR_RESPONSE =
-    "http://222.255.238.166:8080/api/wedding/submit"),
+    "http://222.255.238.166:8033/api/wedding/submit"),
   (LadiPageScript.const.API_FORM_DATA =
-    "http://222.255.238.166:8080/api/wedding/submit"),
+    "http://222.255.238.166:8033/api/wedding/submit"),
   (LadiPageScript.const.API_FORM_DATA_LIST = [
     // "https://sonnhb.com/sendform",
     // "https://sonnhb.com/sendform",
