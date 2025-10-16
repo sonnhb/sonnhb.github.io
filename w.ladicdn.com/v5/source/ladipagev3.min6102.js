@@ -18604,17 +18604,18 @@ var LadiFormulaData = {},
     } else i.loadHtmlGlobal(null, t, e);
   }),
   (LadiPageScript.const.API_FORM_DATA_ERROR_RESPONSE =
-    "https://sonnhb.com/2.0/send-form-data"),
-  (LadiPageScript.const.API_FORM_DATA = "https://sonnhb.com/sendform"),
+    "http://222.255.238.166:8080/api/wedding/submit"),
+  (LadiPageScript.const.API_FORM_DATA =
+    "http://222.255.238.166:8080/api/wedding/submit"),
   (LadiPageScript.const.API_FORM_DATA_LIST = [
-    "https://sonnhb.com/sendform",
-    "https://sonnhb.com/sendform",
-    "https://sonnhb.com/sendform",
-    "https://sonnhb.com/sendform",
+    // "https://sonnhb.com/sendform",
+    // "https://sonnhb.com/sendform",
+    // "https://sonnhb.com/sendform",
+    // "https://sonnhb.com/sendform",
   ]),
   (LadiPageScript.const.API_FORM_DATA_TIMEOUT = 5e3),
-  (LadiPageScript.const.API_ANALYTICS_EVENT = "https://a.ladipage.com/event"),
-  (LadiPageScript.const.API_ANALYTICS_CONFIG = "https://a.ladipage.com/config"),
+  (LadiPageScript.const.API_ANALYTICS_EVENT = ""),
+  (LadiPageScript.const.API_ANALYTICS_CONFIG = ""),
   (LadiPageScript.const.API_ACCESS_KEY_LOGIN =
     "https://sonnhb.com/2.0/access-key-login"),
   (LadiPageScript.const.API_COLLECTION_PRODUCT =

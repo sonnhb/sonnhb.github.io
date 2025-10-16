@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Danh sách Form submissions</title>
+
+    <style>
+      body {
+        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        background: #f6f8fb;
+        color: #222;
+        padding: 20px;
+      }
+
+      .wrap {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 8px;
+        padding: 14px;
+        box-shadow: 0 6px 18px rgba(20, 20, 40, 0.06);
+        margin-bottom: 16px;
+      }
+
+      h1 {
+        font-size: 18px;
+        margin: 0 0 12px 0;
+      }
+
+      .controls {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .btn {
+        padding: 8px 12px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .btn.primary {
+        background: #1f6feb;
+        color: #fff;
+      }
+
+      .btn.ghost {
+        background: #fff;
+        color: #1f6feb;
+        border: 1px solid #d7e0ff;
+      }
+
+      .small {
+        font-size: 13px;
+        color: #666;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      thead th {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 1px solid #e9eef8;
+        background: #fbfdff;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
+
+      tbody td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #f1f4fb;
+        vertical-align: top;
+      }
+
+      tbody tr:hover {
+        background: #f8fbff;
+      }
+
+      .muted {
+        color: #6b7280;
+        font-size: 13px;
+      }
+
+      .right {
+        text-align: right;
+      }
+
+      .empty {
+        padding: 18px;
+        text-align: center;
+        color: #666;
+      }
+
+      .small-muted {
+        font-size: 12px;
+        color: #888;
+        margin-left: auto;
+      }
+
+      .spinner {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        border-left-color: #1f6feb;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        vertical-align: middle;
+        margin-left: 8px;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 720px) {
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+          display: block;
+        }
+        thead {
+          display: none;
+        }
+        tbody tr {
+          margin-bottom: 12px;
+          border: 1px solid #eef2ff;
+          border-radius: 8px;
+          padding: 10px;
+        }
+        tbody td {
+          border: none;
+          padding: 6px 0;
+        }
+        .field-label {
+          display: inline-block;
+          width: 110px;
+          font-weight: 600;
+          color: #444;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <h1>Danh sách submissions</h1>
+        <div class="controls">
+          <button id="refreshBtn" class="btn primary">Tải lại</button>
+          <button id="autoToggle" class="btn ghost">Auto refresh: OFF</button>
+          <div class="small-muted" id="summary">—</div>
+        </div>
+
+        <div id="tableWrap" style="overflow: auto">
+          <table id="formsTable" aria-describedby="summary">
+            <thead>
+              <tr>
+                <th style="width: 60px">ID</th>
+                <th>Tên</th>
+                <th>Phone</th>
+                <th>Message</th>
+                <th>Form Item7</th>
+                <th style="width: 160px">Thời gian</th>
+              </tr>
+            </thead>
+            <tbody id="tbBody">
+              <tr>
+                <td colspan="6" class="empty">Đang tải dữ liệu…</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      (function ($) {
+        const API_URL = "/api/forms"; // <-- endpoint backend phải cung cấp (GET trả mảng)
+        const REFRESH_INTERVAL_MS = 10000; // nếu bật auto refresh: 10s
+        let autoRefresh = false;
+        let autoTimer = null;
+
+        // map helper: hỗ trợ nhiều tên trường (camelCase hoặc snake_case)
+        function getField(record, ...keys) {
+          for (const k of keys) {
+            if (record == null) continue;
+            if (record[k] !== undefined && record[k] !== null) return record[k];
+          }
+          return "";
+        }
+
+        function formatDate(d) {
+          if (!d) return "";
+          // thử parse ISO string hoặc timestamp
+          const dt = typeof d === "number" ? new Date(d) : new Date(d);
+          if (isNaN(dt.getTime())) return d;
+          // định dạng: YYYY-MM-DD HH:mm
+          const y = dt.getFullYear();
+          const m = String(dt.getMonth() + 1).padStart(2, "0");
+          const day = String(dt.getDate()).padStart(2, "0");
+          const hh = String(dt.getHours()).padStart(2, "0");
+          const mm = String(dt.getMinutes()).padStart(2, "0");
+          const ss = String(dt.getSeconds()).padStart(2, "0");
+          return `${y}-${m}-${day} ${hh}:${mm}:${ss}`;
+        }
+
+        function renderEmpty(msg) {
+          $("#tbBody").html(
+            '<tr><td colspan="6" class="empty">' +
+              (msg || "Không có bản ghi") +
+              "</td></tr>"
+          );
+        }
+
+        function renderRows(data) {
+          if (!Array.isArray(data) || data.length === 0) {
+            renderEmpty("Không có bản ghi");
+            $("#summary").text("0 bản ghi");
+            return;
+          }
+
+          const rows = data
+            .map((rec) => {
+              const id = getField(rec, "id", "Id", "ID");
+              const name =
+                getField(rec, "name", "fullName", "full_name") || "-";
+              const phone =
+                getField(rec, "phone", "mobile", "telephone") || "-";
+              const message = getField(rec, "message", "msg", "note") || "-";
+              const formItem7 = getField(rec, "formItem7", "form_item7") || "-";
+              const created =
+                getField(rec, "createdAt", "created_at", "created") || "";
+
+              // escape HTML to avoid XSS
+              function esc(s) {
+                if (s == null) return "";
+                return String(s).replace(/[&<>"'`]/g, function (m) {
+                  return {
+                    "&": "&amp;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    '"': "&quot;",
+                    "'": "&#39;",
+                    "`": "&#96;",
+                  }[m];
+                });
+              }
+
+              return `<tr>
+            <td class="muted">${esc(id)}</td>
+            <td>${esc(name)}</td>
+            <td>${esc(phone)}</td>
+            <td>${esc(message)}</td>
+            <td>${esc(formItem7)}</td>
+            <td class="muted">${esc(formatDate(created))}</td>
+          </tr>`;
+            })
+            .join("");
+
+          $("#tbBody").html(rows);
+          $("#summary").text(
+            data.length +
+              " bản ghi (mới nhất " +
+              formatDate(getField(data[0], "createdAt", "created_at")) +
+              ")"
+          );
+        }
+
+        function showSpinnerOnBtn($btn) {
+          const spinner = $('<span class="spinner" aria-hidden="true"></span>');
+          $btn.prop("disabled", true).append(spinner);
+          return function hide() {
+            spinner.remove();
+            $btn.prop("disabled", false);
+          };
+        }
+
+        function fetchData() {
+          const hide = showSpinnerOnBtn($("#refreshBtn"));
+          $.ajax({
+            url: API_URL,
+            method: "GET",
+            dataType: "json",
+            success: function (resp) {
+              // nếu backend trả object chứa field data: resp.data => lấy resp.data
+              let payload = resp;
+              if (resp && resp.data && Array.isArray(resp.data))
+                payload = resp.data;
+              // nếu backend trả 1 object (một bản ghi), wrap thành mảng
+              if (payload && !Array.isArray(payload)) payload = [payload];
+
+              renderRows(payload);
+            },
+            error: function (xhr) {
+              console.error("Lỗi khi gọi API", xhr);
+              renderEmpty(
+                "Lỗi khi lấy dữ liệu: " +
+                  (xhr.status ? xhr.status + " " + xhr.statusText : "")
+              );
+              $("#summary").text("Lỗi");
+            },
+            complete: function () {
+              hide();
+            },
+          });
+        }
+
+        // handlers
+        $(function () {
+          // initial load
+          fetchData();
+
+          $("#refreshBtn").on("click", function () {
+            fetchData();
+          });
+
+          $("#autoToggle").on("click", function () {
+            autoRefresh = !autoRefresh;
+            $(this).text("Auto refresh: " + (autoRefresh ? "ON" : "OFF"));
+            if (autoRefresh) {
+              // start
+              autoTimer = setInterval(fetchData, REFRESH_INTERVAL_MS);
+            } else {
+              clearInterval(autoTimer);
+              autoTimer = null;
+            }
+          });
+
+          // optional: support pressing "r" to refresh
+          $(document).on("keydown", function (e) {
+            if (e.key === "r" || e.key === "R") {
+              fetchData();
+            }
+          });
+        });
+      })(jQuery);
+    </script>
+  </body>
+</html>
