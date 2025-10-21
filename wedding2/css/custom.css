@@ -1,0 +1,155 @@
+/* ======== GLOBAL ======== */
+header > .logo {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  border-radius: 100px;
+  z-index: 10000;
+}
+
+.block-main-image {
+  /* position: relative; */
+}
+.gray-block {
+  background-color: rgb(230, 230, 230);
+  width: 82%;
+  max-height: 455px;
+  margin: auto;
+}
+
+.main-image {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5%;
+}
+.main-image__image {
+  z-index: 1000;
+  box-shadow: rgb(0, 0, 0) 0px 0px 3px 1px;
+  animation-name: fadeInUp;
+}
+#main-image__image1 {
+  animation-duration: 1s;
+}
+#main-image__image2 {
+  animation-duration: 2s;
+}
+#main-image__image3 {
+  animation-duration: 3s;
+}
+.main-image__date {
+  display: flex;
+  justify-content: center;
+}
+.main-image__date > p {
+  font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
+  font-weight: bold;
+  line-height: 1.6;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+.main-image__image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* ======== MOBILE ======== */
+/* iPhone Pro, Samsung Galaxy */
+@media (max-width: 768px) {
+  header {
+    margin-top: 54px;
+  }
+  .logo,
+  .logo-hidden {
+    width: 42px;
+    height: 42px;
+  }
+  .gray-block {
+    width: 92%;
+    min-height: 100px;
+    max-height: 200px;
+  }
+  .main-image {
+    margin: -70px 8% 0 8%;
+  }
+  .main-image__date {
+    margin-top: -84px;
+  }
+  .main-image__date > p {
+    font-size: 50px;
+  }
+  #music-toggle {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  #play-icon {
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+  }
+}
+
+/* ======== DESKTOP ======== */
+/* màn hình HD */
+/* @media (min-width: 1025px) { */
+@media (min-width: 769px) {
+  header {
+    margin-top: 20px;
+  }
+  .logo,
+  .logo-hidden {
+    width: 62px;
+    height: 62px;
+  }
+  .gray-block {
+    width: 82%;
+    min-height: 250px;
+    max-height: 455px;
+  }
+  .main-image {
+    margin: -200px 12% 0 12%;
+  }
+  .main-image__date {
+    margin-top: -200px;
+  }
+  .main-image__date > p {
+    font-size: 120px;
+  }
+  #music-toggle {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  #play-icon {
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+  }
+}
+
+/* iPhone SE, Android nhỏ */
+/* @media (max-width: 480px) {} */
+/* iPad, Galaxy Tab */
+/* @media (max-width: 1024px) {} */
