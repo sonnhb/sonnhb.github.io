@@ -1,0 +1,12 @@
+.leaves { position:fixed; inset:0; pointer-events:none; }
+
+  /* 1 trái tim = 3 lớp lồng nhau: fall -> sway -> spin (để cộng dồn transform) */
+  .leaf { position:absolute; top:-12vh; width: var(--size, 28px); opacity: var(--opacity, .95); left: var(--left, 50vw); filter: drop-shadow(0 3px 2px rgba(0,0,0,.12)); }
+  .fall { transform: translateY(-10vh); animation: fall var(--fall, 12s) linear var(--delay, 0s) infinite; will-change: transform; }
+  .sway { animation: sway var(--sway, 5s) ease-in-out var(--delay, 0s) infinite alternate; will-change: transform; }
+  .spin { animation: spin var(--spin, 8s) linear var(--delay, 0s) infinite; will-change: transform; }
+  .spin svg { display:block; width:100%; height:auto; }
+
+  @keyframes fall { to { transform: translateY(110vh); } }
+  @keyframes sway { from { transform: translateX(calc(-1 * var(--amp, 40px))); } to { transform: translateX(var(--amp, 40px)); } }
+  @keyframes spin { to { transform: rotate(var(--spin-deg, 360deg)); } }
