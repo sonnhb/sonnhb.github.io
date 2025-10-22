@@ -11,12 +11,7 @@ body {
 .dflex {
   display: flex;
 }
-.dflex-line {
-  width: 18px;
-}
-.line {
-  border-left: 2px solid rgb(0, 0, 0);
-}
+
 header > .logo {
   position: fixed;
   top: 10px;
@@ -151,6 +146,37 @@ header > .logo {
   letter-spacing: 2px;
   text-align: left;
 }
+
+.wedding-info__name {
+    font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
+    line-height: 1.6;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.wedding-info__name > p {
+  height: 100%;
+  margin: 0;
+}
+
+.wedding-info__and {
+      font-family: SGlnaCBTcGlyaXRlZCdGY;
+    line-height: 0.8;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.wedding-info__and > p {
+  height: 100%;
+  margin: 0;
+}
+
+.wedding-invitation {
+  font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
+    line-height: 1.6;
+    color: rgb(1, 1, 1);
+    text-align: center;
+}
 footer {
   margin-bottom: 100px;
 }
@@ -232,6 +258,63 @@ footer {
     color: rgb(0, 0, 0);
     text-align: center;
   }
+  
+  .dflex-line {
+  width: 18px;
+      justify-content: center;
+    align-self: center;
+}
+.name-name {
+  margin-top: 20px;
+}
+.name-name__text {
+  justify-content: center;
+      animation-name: fadeInUp;
+    animation-duration: 1s;
+}
+.name-name__text h3 {
+  height: 100%;
+    align-content: center;
+}
+#name-name__s {
+  padding-right: 12px;
+  margin-left: -12px;
+  animation-name: fadeInUp;
+    animation-duration: 1s;
+}
+#name-name__c {
+  padding-left: 12px;
+  margin-right: -12px;
+  animation-name: fadeInUp;
+    animation-duration: 2s;
+}
+.line {
+  width: 2px;
+  height: 40px;
+  border-left: 2px solid rgb(0, 0, 0);
+  animation-name: fadeInUp;
+  animation-duration: 1.5s;
+}
+
+.wedding-info__name {
+  font-size: 20px;
+}
+.wedding-info__and {
+  font-size: 35px;
+}
+
+.wedding-invitation {
+  margin-top: 35px;
+  font-size: 14px;
+}
+
+.wedding-invitation__inviters {
+    font-family: MUZUViWSVAtSGlnaCTcGlyaXRlZCvdGY;
+    font-size: 35px;
+    line-height: 1.6;
+    color: rgb(1, 1, 1);
+    text-align: center;
+}
   #music-toggle {
     position: fixed;
     bottom: 15px;
