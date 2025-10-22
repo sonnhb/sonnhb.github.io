@@ -1,4 +1,16 @@
 /* ======== GLOBAL ======== */
+body {
+  font-size: 12px;
+  -ms-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  background-color: #fff;
+  line-height: 1;
+}
+dflex {
+  display: flex;
+}
 header > .logo {
   position: fixed;
   top: 10px;
@@ -7,9 +19,6 @@ header > .logo {
   z-index: 10000;
 }
 
-.block-main-image {
-  /* position: relative; */
-}
 .gray-block {
   background-color: rgb(230, 230, 230);
   width: 82%;
@@ -27,13 +36,35 @@ header > .logo {
   box-shadow: rgb(0, 0, 0) 0px 0px 3px 1px;
   animation-name: fadeInUp;
 }
+.transition {
+  transition: all 150ms linear 0s;
+}
+.headline {
+  width: 100%;
+  display: inline-block;
+  word-break: break-word;
+  background-size: cover;
+  background-position: center center;
+}
+#save-the-date {
+  font-family: "Cormorant Upright", serif;
+  font-weight: bold;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  animation-name: fadeInUp;
+  animation-duration: 2s;
+}
 #main-image__image1 {
+  animation-name: fadeInUp;
   animation-duration: 1s;
 }
 #main-image__image2 {
+  animation-name: fadeInUp;
   animation-duration: 2s;
 }
 #main-image__image3 {
+  animation-name: fadeInUp;
   animation-duration: 3s;
 }
 .main-image__date {
@@ -47,10 +78,75 @@ header > .logo {
   color: rgb(255, 255, 255);
   text-align: center;
 }
+#main-image__date1,
+#main-image__date2,
+#main-image__date3 {
+  opacity: 0; /* ẩn trước khi chạy */
+  animation-name: fadeInUp;
+  animation-fill-mode: forwards; /* giữ trạng thái cuối (opacity:1) */
+}
+#main-image__date1 {
+  animation-delay: 1s;
+  animation-duration: 1s;
+}
+#main-image__date2 {
+  animation-delay: 1s;
+  animation-duration: 2s;
+}
+#main-image__date3 {
+  animation-delay: 1s;
+  animation-duration: 3s;
+}
 .main-image__image > img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
+}
+#save-the-date__ring {
+  display: flex;
+  animation-name: fadeInUp;
+  animation-duration: 3s;
+  margin: auto;
+}
+#save-the-date__ring > img {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+#banner {
+  display: flex;
+  width: 96%;
+  margin: auto;
+  animation-name: fadeInUp;
+  animation-duration: 2s;
+  position: relative;
+}
+.banner__text {
+  position: absolute;
+}
+
+#banner__image,
+#banner__image > img {
+  width: 100%;
+  height: auto;
+}
+#banner-wedding {
+  font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
+  font-weight: bold;
+  line-height: 1.6;
+  color: rgb(255, 255, 255);
+  letter-spacing: 1px;
+  text-align: left;
+}
+#banner-invitation {
+  font-family: SGlnaCBTcGlyaXRlZCdGY;
+  line-height: 1.6;
+  color: rgb(255, 255, 255);
+  letter-spacing: 2px;
+  text-align: left;
+}
+footer {
+  margin-bottom: 100px;
 }
 /* ======== MOBILE ======== */
 /* iPhone Pro, Samsung Galaxy */
@@ -64,18 +160,46 @@ header > .logo {
     height: 42px;
   }
   .gray-block {
-    width: 92%;
-    min-height: 100px;
+    width: 96%;
     max-height: 200px;
+    height: 130px;
   }
   .main-image {
-    margin: -70px 8% 0 8%;
+    margin: -100px 6% 0 6%;
   }
   .main-image__date {
     margin-top: -84px;
   }
   .main-image__date > p {
     font-size: 50px;
+  }
+  .headline {
+    font-size: 24px;
+  }
+  #save-the-date {
+    margin-top: 15px;
+  }
+  #save-the-date__ring {
+    margin-top: -30px;
+    width: 77px;
+    height: 77px;
+  }
+  #banner {
+    margin-top: 10px;
+  }
+  #banner-wedding {
+    margin-top: 5px;
+    margin-left: 20px;
+  }
+  #banner-wedding > .headline {
+    font-size: 18px;
+  }
+  #banner-invitation {
+    margin-top: -10px;
+    margin-left: 70px;
+  }
+  #banner-invitation > .headline {
+    font-size: 24px;
   }
   #music-toggle {
     position: fixed;
@@ -125,6 +249,32 @@ header > .logo {
   }
   .main-image__date > p {
     font-size: 120px;
+  }
+  .headline {
+    font-size: 50px;
+  }
+  #save-the-date {
+    margin-top: 50px;
+  }
+  #save-the-date__ring {
+    width: 283px;
+    height: 283px;
+  }
+  #banner {
+    margin-top: 48px;
+  }
+  #banner-wedding {
+    font-size: 50px;
+    margin-left: 50px;
+    margin-top: 50px;
+  }
+
+  #banner-invitation {
+    margin-top: -20px;
+    margin-left: 200px;
+  }
+  #banner-invitation > h3 {
+    font-size: 68px;
   }
   #music-toggle {
     position: fixed;
