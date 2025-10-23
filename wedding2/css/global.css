@@ -49,6 +49,7 @@ body {
   color: #000;
   -webkit-font-smoothing: antialiased; /* làm mượt font trên Chrome/Safari */
   -moz-osx-font-smoothing: grayscale; /* làm mượt font trên Firefox */
+  overflow-x: hidden;
 }
 
 /* Bỏ style mặc định cho các phần tử văn bản cơ bản */

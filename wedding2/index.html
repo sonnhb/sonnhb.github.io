@@ -33,6 +33,7 @@
         <div class="main-image">
           <div class="main-image__image" id="main-image__image1">
             <img
+              class="preview-img"
               src="./images/global/three-image-1.jpg"
               alt="Hồng Sơn & Minh Châu"
             />
@@ -42,6 +43,7 @@
           </div>
           <div class="main-image__image" id="main-image__image2">
             <img
+              class="preview-img"
               src="./images/global/three-image-2.jpg"
               alt="Hồng Sơn & Minh Châu"
             />
@@ -49,6 +51,7 @@
           </div>
           <div class="main-image__image" id="main-image__image3">
             <img
+              class="preview-img"
               src="./images/global/three-image-3.jpg"
               alt="Hồng Sơn & Minh Châu"
             />
@@ -151,7 +154,7 @@
             <div class="datetime-calendar__box">
               <a
                 class="calendar__box-button"
-                href="https://maps.app.goo.gl/fuPDSs8KipUbLH7r9"
+                href="#"
                 >Mừng cưới</a
               >
               <a
@@ -420,16 +423,86 @@
         </div>
       </div>
       <!-- road map -->
-      <div></div>
+      <div class="road">
+        <div class="road-time__heading">
+          <div class="road-time">CHẶNG ĐƯỜNG</div>
+        <div class="road-time__us">của chúng tôi</div>
+        </div>
+        <div class="road-time__content">
+          <div class="road-time__block">
+            <div class="road-time__line">
+              <div class="line"></div>
+            </div>
+            <div class="road-time__event">
+              <div class="road-time__text">
+                <h3>Lần đầu gặp nhau</h3>
+                <p>
+                  Vào một ngày đẹp trời, chúng tôi tình cờ gặp nhau tại quán
+                  cà phê nhỏ. Ánh mắt đầu tiên đã khiến trái tim chúng tôi rung
+                  động.
+                </p>
+              </div>
+              <div class="road-time__img">
+                <img src="images/static/meet.png" alt="meet" />
+              </div>
+          </div>
+        </div>
+      </div>
       <!-- sweet memory -->
-      <div></div>
+      <div class="sweet-memory">
+        <div class="sweet-memory__heading">
+          <h2 class="sweet-memory__title">KỶ NIỆM NGỌT NGÀO</h2>
+          <img
+            src="images/static/sweet-memory.png"
+            alt="sweet memory"
+            class="icon"
+          />
+        </div>
+        <div class="sweet-memory__library">
+
+        </div>
+      </div>
       <!-- box  -->
-      <div></div>
+      <div>
+        <div>
+          <div>HỘP MỪNG CƯỚI</div>
+          <div>Thật vui vì được gặp và đón tiếp các bạn trong một dịp đặc biệt như đám cưới của chúng tôi!♥</div>
+        </div>
+        <div>
+          <div>
+            <div>Tới chú rể</div>
+            <div>
+              <img src="" alt="">
+            </div>
+            <div>Nguyen Hong Son</div>
+            <div>7227121996</div>
+          </div>
+          <div>
+            <div>Tới chú rể</div>
+            <div>
+              <img src="" alt="">
+            </div>
+            <div>Nguyen Hong Son</div>
+            <div>7227121996</div>
+          </div>
+        </div>
+
+      </div>
       <!-- form -->
-      <div></div>
+      <div>
+        <div class="form-heading">BẠN SẼ ĐẾN CHỨ?</div>
+        <div>Chúng tôi rất chờ đón</div>
+      </div>
+      <form action="">
+
+      </form>
     </main>
     <!-- footer -->
-    <footer></footer>
+    <footer>
+      <div><img src="" alt=""></div>
+      <div>Hồng Sơn & Minh Châu</div>
+      <div>- Thank You!!! -</div>
+    </footer>
 
     <audio id="background-music" loop="">
       <source src="../audio/TaylorSwiftDaylight.mp3" />
@@ -438,12 +511,12 @@
     <!-- Nút toggle nhạc -->
     <div id="music-toggle" title="Bật / Tắt nhạc">
       <img id="play-icon" src="./images/static/music.png" alt="Play Icon" />
-      <!-- <img
+      <img
         id="pause-icon"
-        src="../w.ladicdn.com/6801c7e1fbbd4d001283dac2/music_5927634-20250714103348-pjzeb.png"
+        src="./images/static/music.png"
         alt="Pause Icon"
         style="display: none"
-      /> -->
+      />
     </div>
     <!-- Overlay hiển thị ảnh lớn -->
     <div class="image-modal" id="imageModal">
