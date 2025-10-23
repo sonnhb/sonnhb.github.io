@@ -1,17 +1,4 @@
 /* ======== GLOBAL ======== */
-body {
-  font-size: 12px;
-  -ms-text-size-adjust: none;
-  -moz-text-size-adjust: none;
-  -o-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  background-color: #fff;
-  line-height: 1;
-}
-.dflex {
-  display: flex;
-}
-
 header > .logo {
   position: fixed;
   top: 10px;
@@ -19,7 +6,9 @@ header > .logo {
   border-radius: 100px;
   z-index: 10000;
 }
-
+.leaves {
+  z-index: 10000;
+}
 .gray-block {
   background-color: rgb(230, 230, 230);
   width: 82%;
@@ -148,10 +137,10 @@ header > .logo {
 }
 
 .wedding-info__name {
-    font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
-    line-height: 1.6;
-    color: rgb(0, 0, 0);
-    text-align: center;
+  font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: center;
 }
 
 .wedding-info__name > p {
@@ -160,10 +149,10 @@ header > .logo {
 }
 
 .wedding-info__and {
-      font-family: SGlnaCBTcGlyaXRlZCdGY;
-    line-height: 0.8;
-    color: rgb(0, 0, 0);
-    text-align: center;
+  font-family: SGlnaCBTcGlyaXRlZCdGY;
+  line-height: 0.8;
+  color: rgb(0, 0, 0);
+  text-align: center;
 }
 
 .wedding-info__and > p {
@@ -173,12 +162,423 @@ header > .logo {
 
 .wedding-invitation {
   font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
-    line-height: 1.6;
-    color: rgb(1, 1, 1);
-    text-align: center;
+  line-height: 1.6;
+  color: rgb(1, 1, 1);
+  text-align: center;
+  animation-name: fadeInUp;
+  animation-duration: 2s;
 }
+.name-name__image {
+  width: 84px;
+  height: 84px;
+}
+.name-name__image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.name-name {
+  justify-content: center;
+}
+
+#name-name__s,
+#name-name__c {
+  font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
+  font-size: 40px;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.dflex-line {
+  width: 18px;
+  justify-content: center;
+  align-self: center;
+}
+.name-name {
+  margin-top: 20px;
+}
+.name-name__image#name-name__image-left {
+  transform: perspective(1000px) rotate(-20deg) rotateY(180deg);
+}
+.name-name__image#name-name__image-right {
+  transform: rotate(20deg);
+}
+.name-name__text {
+  justify-content: center;
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+}
+.name-name__text h3 {
+  height: 100%;
+  align-content: center;
+}
+#name-name__s {
+  padding-right: 12px;
+  margin-left: -12px;
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+}
+#name-name__c {
+  padding-left: 12px;
+  margin-right: -12px;
+  animation-name: fadeInUp;
+  animation-duration: 2s;
+}
+.line {
+  width: 2px;
+  height: 40px;
+  border-left: 2px solid rgb(0, 0, 0);
+  animation-name: fadeInUp;
+  animation-duration: 1.5s;
+}
+.name-name__image#name-name__image-right > img,
+.name-name__image#name-name__image-left > img {
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+}
+.wedding-info__name:first-child {
+  animation-name: fadeInLeft;
+  animation-duration: 1s;
+}
+.wedding-info__and {
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+.wedding-info__name:last-child {
+  animation-name: fadeInRight;
+  animation-duration: 1s;
+}
+.wedding-invitation__inviters {
+  font-family: MUZUViWSVAtSGlnaCTcGlyaXRlZCvdGY;
+  font-size: 35px;
+  line-height: 0.8;
+  color: rgb(1, 1, 1);
+  text-align: center;
+}
+
+.datetime-calendar__heading {
+  font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
+  line-height: 1.6;
+  color: rgb(1, 1, 1);
+  text-align: center;
+}
+.datetime-calendar {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  font-family: "EB Garamond", serif;
+}
+.datetime-calendar__content {
+  align-self: center;
+}
+.datetime-calendar__content p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.calendar__content-date {
+  font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
+  font-weight: bold;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.datetime-calendar__content > .calendar__content-date-al {
+  font-family: Rokkitt, serif;
+  font-style: italic;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.datetime-calendar__box {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+.datetime-calendar__box .calendar__box-button {
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgb(241, 243, 244);
+  text-align: center;
+  background-color: #737373;
+  padding: 5px 25px;
+  border-radius: 20px;
+  width: 140px;
+}
+.datetime-calendar__box .calendar__box-button {
+  text-decoration: none;
+}
+.datetime-calendar__box .calendar__box-button:hover {
+  transform: scale(1.11);
+  opacity: 0.8;
+}
+.timeline {
+  display: block;
+}
+.timeline__heading {
+  font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhLnRZg;
+  font-weight: bold;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.timeline__calendar {
+  display: block;
+  margin: auto;
+}
+.calendar__day-of-weeks {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1%;
+}
+.calendar__day {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.calendar__day-weekend {
+  color: rgb(242, 63, 63);
+}
+.calendar__day-month {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1%;
+  margin-top: 10px;
+}
+.calendar__day-date {
+  text-align: center;
+  line-height: 2.6;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+}
+.wedding-date {
+  position: relative;
+}
+.wedding-date__heart {
+  position: absolute;
+  width: 200%;
+  left: -54%;
+  top: -56%;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+.wedding-date__heart1 {
+  animation-name: rollIn;
+}
+.wedding-date__heart2 {
+  animation-name: rollOut;
+}
+.timeline-to-wedding {
+  display: block;
+  justify-content: center;
+}
+.timeline-to-wedding__text {
+  position: relative;
+}
+.timeline-to-wedding__timeline {
+  font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
+  line-height: 1.6;
+  color: rgb(221, 218, 218);
+  text-align: center;
+}
+.timeline-to-wedding__wedding {
+  font-family: SGlnaCBTcGlyaXRlZCdGY;
+  line-height: 1.6;
+  color: rgb(1, 1, 1);
+  letter-spacing: 2px;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+}
+.timeline-to-wedding__roadmap {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+.timeline__line {
+  width: 100%;
+  padding: 8px 8px;
+}
+.line-slash {
+  border-top: 2px dashed rgb(0, 0, 0);
+}
+.wedding__roadmap-block {
+  align-content: center;
+}
+.wedding__roadmap-block:first-child {
+  border-right: 2px solid black;
+}
+
+.wedding__roadmap-block-right .timeline-to-wedding__img {
+  justify-self: start;
+  margin-left: 20px;
+}
+.wedding-event {
+  display: flex;
+  justify-self: end;
+  margin-right: 40px;
+  font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.timeline__time {
+  font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: left;
+}
+.wedding__roadmap-block-right .wedding-event {
+  justify-self: start;
+  margin-left: 40px;
+  margin-right: 0;
+}
+.about-us-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 40px 0;
+}
+
+.about-us-title .line {
+  display: flex;
+  width: 20%;
+  height: 2px;
+  background-color: black;
+}
+
+.about-us-title h2 {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  margin: 0;
+  font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.about-us-title .icon {
+  width: 40px;
+  height: auto;
+}
+.about-couple {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 60px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.about-person {
+  width: 80%;
+  align-self: center;
+}
+
+.about-person h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 4px;
+  font-family: Inter, sans-serif;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.about-person h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.about-person p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-family: Inter, sans-serif;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  text-align: justify;
+}
+
+.about-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3%;
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+}
+
+.about-images img {
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.about-images__img {
+  width: 100%;
+  position: relative;
+}
+.about-images__img-bottom {
+  bottom: 8%;
+}
+
+.image-modal {
+  display: none; /* Ẩn mặc định */
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ảnh lớn trong modal */
+.image-modal .modal-content {
+  max-width: 90%;
+  height: auto;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  z-index: 10001;
+}
+
+/* Nút đóng */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.close-btn:hover {
+  color: #ccc;
+}
+
 footer {
   margin-bottom: 100px;
+  height: 100px;
 }
 /* ======== MOBILE ======== */
 /* iPhone Pro, Samsung Galaxy */
@@ -197,7 +597,7 @@ footer {
     height: 130px;
   }
   .main-image {
-    margin: -100px 6% 0 6%;
+    margin: -100px 5% 0 5%;
   }
   .main-image__date {
     margin-top: -84px;
@@ -233,88 +633,91 @@ footer {
   #banner-invitation > .headline {
     font-size: 24px;
   }
-  .name-name__image {
-    width: 84px;
-    height: 84px;
-  }
-  .name-name__image > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .name-name {
-    justify-content: center;
-  }
-  .name-name__image#name-name__image-left {
-    transform: perspective(1000px) rotate(-20deg) rotateY(180deg);
-  }
-  .name-name__image#name-name__image-right {
-      transform: rotate(20deg);
-}
-  #name-name__s, #name-name__c {
-        font-family: UGxheWZhaXJEaXNwbGFLVZhcmlhYmxlRmudFZhICgxKSdGY;
-    font-size: 40px;
-    line-height: 1.6;
-    color: rgb(0, 0, 0);
-    text-align: center;
-  }
-  
-  .dflex-line {
-  width: 18px;
-      justify-content: center;
-    align-self: center;
-}
-.name-name {
-  margin-top: 20px;
-}
-.name-name__text {
-  justify-content: center;
-      animation-name: fadeInUp;
-    animation-duration: 1s;
-}
-.name-name__text h3 {
-  height: 100%;
-    align-content: center;
-}
-#name-name__s {
-  padding-right: 12px;
-  margin-left: -12px;
-  animation-name: fadeInUp;
-    animation-duration: 1s;
-}
-#name-name__c {
-  padding-left: 12px;
-  margin-right: -12px;
-  animation-name: fadeInUp;
-    animation-duration: 2s;
-}
-.line {
-  width: 2px;
-  height: 40px;
-  border-left: 2px solid rgb(0, 0, 0);
-  animation-name: fadeInUp;
-  animation-duration: 1.5s;
-}
 
-.wedding-info__name {
-  font-size: 20px;
-}
-.wedding-info__and {
-  font-size: 35px;
-}
-
-.wedding-invitation {
-  margin-top: 35px;
-  font-size: 14px;
-}
-
-.wedding-invitation__inviters {
-    font-family: MUZUViWSVAtSGlnaCTcGlyaXRlZCvdGY;
+  .wedding-info__name {
+    font-size: 20px;
+  }
+  .wedding-info__and {
     font-size: 35px;
-    line-height: 1.6;
-    color: rgb(1, 1, 1);
-    text-align: center;
-}
+  }
+
+  .wedding-invitation {
+    margin-top: 35px;
+    font-size: 14px;
+  }
+  .wedding-invitation__welcome {
+    font-size: 12px;
+  }
+  .datetime-calendar__right {
+    margin-top: 24px;
+  }
+  .datetime-calendar {
+    width: 90%;
+    display: block;
+    margin-top: 40px;
+  }
+  .datetime-calendar__content p {
+    font-size: 12px;
+  }
+  .timeline {
+    margin-top: 30px;
+  }
+  .timeline__heading {
+    font-size: 20px;
+  }
+  .timeline__calendar {
+    width: 90%;
+    margin-top: 30px;
+  }
+  .calendar__day {
+    font-size: 12px;
+  }
+  .calendar__day-date {
+    font-size: 12px;
+  }
+  .timeline-to-wedding {
+    margin: 20px auto 0 auto;
+    width: 70%;
+  }
+  .timeline-to-wedding__timeline {
+    font-size: 40px;
+  }
+  .timeline-to-wedding__wedding {
+    font-size: 35px;
+    top: 22%;
+  }
+  .timeline-to-wedding__img {
+    width: 68px;
+    display: flex;
+    justify-self: end;
+    margin-right: 20px;
+  }
+  .wedding__roadmap-block {
+    width: 60%;
+  }
+  .about-couple {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .about-images {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .about-images img {
+    /* width: 30%; */
+  }
+  .about-person {
+    width: 90%;
+  }
+  .about-person p {
+    font-size: 12px;
+  }
+  .about-couple {
+    margin: auto;
+  }
   #music-toggle {
     position: fixed;
     bottom: 15px;
@@ -389,6 +792,70 @@ footer {
   }
   #banner-invitation > h3 {
     font-size: 68px;
+  }
+
+  .wedding-info__name {
+    font-size: 30px;
+  }
+  .wedding-info__and {
+    font-size: 45px;
+  }
+  .wedding-invitation {
+    margin-top: 55px;
+    font-size: 20px;
+  }
+  .datetime-calendar {
+    display: flex;
+    margin-top: 70px;
+    width: 68%;
+  }
+  .datetime-calendar__heading {
+    font-size: 20px;
+  }
+  .datetime-calendar__content > .calendar__content-date {
+    font-size: 30px;
+  }
+  .datetime-calendar__content > .calendar__content-date-al {
+    font-size: 11px;
+  }
+  .timeline {
+    margin-top: 50px;
+  }
+  .timeline__heading {
+    font-size: 30px;
+  }
+  .timeline__calendar {
+    width: 40%;
+    margin-top: 34px;
+  }
+  .calendar__day {
+    font-size: 17px;
+  }
+  .calendar__day-date {
+    font-size: 17px;
+  }
+  .timeline-to-wedding {
+    margin: 40px auto 0 auto;
+    width: 40%;
+  }
+  .timeline-to-wedding__timeline {
+    font-size: 65px;
+  }
+  .timeline-to-wedding__wedding {
+    font-size: 40px;
+    top: 42%;
+  }
+  .wedding__roadmap-block {
+    width: 40%;
+  }
+  .timeline-to-wedding__img {
+    width: 86px;
+    display: flex;
+    justify-self: end;
+    margin-right: 20px;
+  }
+  .about-images {
+    margin-top: 50px;
   }
   #music-toggle {
     position: fixed;
